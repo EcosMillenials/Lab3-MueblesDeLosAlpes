@@ -18,12 +18,15 @@ import com.losalpes.excepciones.AutenticacionException;
 import com.losalpes.servicios.IServicioSeguridadMockLocal;
 import com.losalpes.servicios.ServicioSeguridadMock;
 import java.io.Serializable;
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 /**
  * Managed bean encargado de la autenticación en el sistema
  * 
  */
+@ManagedBean
 public class LoginBean implements Serializable
 {
 
@@ -49,6 +52,7 @@ public class LoginBean implements Serializable
     /**
      * Relación con la interfaz adecuada para la autenticación de usuarios
      */
+    @EJB
     private IServicioSeguridadMockLocal servicio;
 
     /**
@@ -70,8 +74,7 @@ public class LoginBean implements Serializable
      */
     public LoginBean()
     {
-        error=false;
-        servicio=new ServicioSeguridadMock();
+        error=false;        
     }
 
     //-----------------------------------------------------------

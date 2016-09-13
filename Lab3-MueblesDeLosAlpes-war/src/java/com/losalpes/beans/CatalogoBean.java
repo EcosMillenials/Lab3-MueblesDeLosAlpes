@@ -19,6 +19,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
@@ -28,6 +29,7 @@ import javax.faces.model.SelectItem;
  * Managed bean encargado del catálogo de muebles en el sistema
  * 
  */
+@ManagedBean
 public class CatalogoBean implements Serializable
 {
 

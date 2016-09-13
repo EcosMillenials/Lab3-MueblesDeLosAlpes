@@ -25,6 +25,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
@@ -34,6 +36,7 @@ import javax.faces.model.SelectItem;
  * Managed Bean encargado de la administración de los usuarios del sistema
  * 
  */
+@ManagedBean
 public class RegistroBean implements Serializable
 {
 
@@ -44,6 +47,7 @@ public class RegistroBean implements Serializable
     /**
      * Relación con la interfaz que provee los servicios de administración de usuarios
      */
+    @EJB
     private IServicioRegistroMockLocal usuarioServices;
 
     /**
@@ -90,9 +94,6 @@ public class RegistroBean implements Serializable
      */
     public RegistroBean() 
     {
-
-        usuarioServices = new ServicioRegistroMock();
-
         paises = new ArrayList<Pais>();
         ciudades = new ArrayList<Ciudad>();   
         mostrarVentana=false;
