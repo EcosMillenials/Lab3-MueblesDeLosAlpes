@@ -20,6 +20,7 @@ import com.losalpes.servicios.ServicioSeguridadMock;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 /**
@@ -27,6 +28,7 @@ import javax.faces.context.FacesContext;
  * 
  */
 @ManagedBean
+@ViewScoped
 public class LoginBean implements Serializable
 {
 

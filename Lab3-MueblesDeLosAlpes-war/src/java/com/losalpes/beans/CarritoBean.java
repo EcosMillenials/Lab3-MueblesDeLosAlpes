@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import org.primefaces.event.DragDropEvent;
@@ -32,6 +33,7 @@ import org.primefaces.event.DragDropEvent;
  * 
  */
 @ManagedBean
+@ViewScoped
 public class CarritoBean implements Serializable
 {
 

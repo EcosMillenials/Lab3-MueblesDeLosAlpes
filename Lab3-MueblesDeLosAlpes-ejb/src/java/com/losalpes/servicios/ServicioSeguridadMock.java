@@ -44,7 +44,7 @@ public class ServicioSeguridadMock implements IServicioSeguridadMockLocal
      */
     public ServicioSeguridadMock()
     {
-        persistencia=new ServicioPersistenciaMock();
+        
     }
 
     //-----------------------------------------------------------

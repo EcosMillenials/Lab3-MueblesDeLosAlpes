@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 /**
@@ -28,6 +29,7 @@ import javax.faces.context.FacesContext;
  * 
  */
 @ManagedBean
+@ViewScoped
 public class VendedorBean implements Serializable
 {
 

@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
@@ -37,6 +38,7 @@ import javax.faces.model.SelectItem;
  * 
  */
 @ManagedBean
+@ViewScoped
 public class RegistroBean implements Serializable
 {
 

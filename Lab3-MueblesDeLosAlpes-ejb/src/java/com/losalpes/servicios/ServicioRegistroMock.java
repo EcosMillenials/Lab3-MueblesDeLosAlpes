@@ -45,7 +45,7 @@ public class ServicioRegistroMock implements IServicioRegistroMockRemote, IServi
      */
      public ServicioRegistroMock()
      {
-        persistencia=new ServicioPersistenciaMock();
+        
      }
 
     //-----------------------------------------------------------
