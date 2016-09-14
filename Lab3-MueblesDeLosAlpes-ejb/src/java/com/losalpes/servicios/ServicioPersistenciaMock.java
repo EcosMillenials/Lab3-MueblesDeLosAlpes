@@ -113,6 +113,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
                 venta.setProducto(muebles.get(e));
                 venta.setFechaVenta(new Date(r.nextInt()));
                 venta.setCiudad("Bogotá");
+                registrosVentas.add(venta);
             }
         }
     }
@@ -355,5 +356,13 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             }
         }
         return null;
+    }
+
+    /**
+     * 
+     */
+    @Override
+    public void instanciar() {
+        
     }
 }

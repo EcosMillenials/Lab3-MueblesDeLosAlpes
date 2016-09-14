@@ -15,6 +15,7 @@ package com.losalpes.beans;
 import com.losalpes.entities.TipoUsuario;
 import com.losalpes.entities.Usuario;
 import com.losalpes.excepciones.AutenticacionException;
+import com.losalpes.servicios.IServicioPersistenciaMockLocal;
 import com.losalpes.servicios.IServicioSeguridadMockLocal;
 import com.losalpes.servicios.ServicioSeguridadMock;
 import java.io.Serializable;
@@ -56,6 +57,10 @@ public class LoginBean implements Serializable
      */
     @EJB
     private IServicioSeguridadMockLocal servicio;
+    
+    
+    @EJB
+    private IServicioPersistenciaMockLocal servicioPersistencia;
 
     /**
      * Mensaje de error
@@ -92,6 +97,7 @@ public class LoginBean implements Serializable
         try
         {
             sesion = servicio.ingresar(usuario, contraseña);
+            servicioPersistencia.instanciar();
             if (sesion.getTipoUsuario() == TipoUsuario.Administrador)
             {
                 return "administrador";

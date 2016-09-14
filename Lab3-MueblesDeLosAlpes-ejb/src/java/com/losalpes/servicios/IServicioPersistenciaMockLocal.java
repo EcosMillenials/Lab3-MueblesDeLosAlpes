@@ -56,4 +56,9 @@ public interface IServicioPersistenciaMockLocal
      */
     public java.lang.Object findById(java.lang.Class c, java.lang.Object id);
     
+    /**
+     * 
+     */
+    public void instanciar();
+    
 }

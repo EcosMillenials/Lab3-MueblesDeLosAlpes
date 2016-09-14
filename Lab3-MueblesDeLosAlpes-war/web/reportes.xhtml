@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!--
+    Document   : vendedores
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/main-template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:param name="titulo" value="Catálogo de muebles" />
+    <ui:define name="body">
+
+        <!-- Header del panel -->
+        <h:form>
+            <h:outputText id="linkHeader"
+                          value="Reportes" style="color:white"/>
+        </h:form>
+
+
+        <h:panelGroup>
+            <h:form>
+                <div align="right" style="padding-right: 10px">
+                    <h:commandButton style="background: transparent" image="./resources/img/pag/atras.png" action="menu.jsf"/>
+                </div>
+
+
+                <p:panel id="basic" header="Reporte Ventas Ultimo Mes" style="margin-bottom:20px" >
+
+                    <p:dataTable var="reporte" value="#{reporteBean.reporteVentas}">
+                        <p:column headerText="Fecha">
+                            <h:outputText value="#{reporte.fechaVenta}" />
+                        </p:column>
+                        <p:column headerText="Producto">
+                            <h:outputText value="#{reporte.producto.nombre}" />
+                        </p:column>
+
+                        <p:column headerText="Cantidad">
+                            <h:outputText value="#{reporte.cantidad}" />
+                        </p:column>
+                        <p:column headerText="Ciudad">
+                            <h:outputText value="#{reporte.ciudad}" />
+                        </p:column>
+                        
+
+                    </p:dataTable>
+
+
+
+                </p:panel>
+
+
+            </h:form>
+
+        </h:panelGroup>
+
+
+
+
+    </ui:define>
+
+</ui:composition>
