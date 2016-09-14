@@ -381,7 +381,10 @@ public class RegistroBean implements Serializable
         }
         catch(OperacionInvalidaException e)
         {
-            throw new OperacionInvalidaException(e.getMessage());
+            mensaje = e.getMessage();
+
+            mostrarVentana = true;
+            //throw new OperacionInvalidaException(e.getMessage());
             
         }
     

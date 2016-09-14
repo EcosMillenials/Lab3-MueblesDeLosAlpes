@@ -18,14 +18,16 @@ import com.losalpes.entities.Usuario;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
+import javax.ejb.Remove;
+import javax.ejb.Stateful;
+
 
 
 /**
  * Implementacion de los servicios del carrito de compras en el sistema.
  * 
  */
-@Stateless
+@Stateful
 public class ServicioCarritoMock implements IServicioCarritoMockRemote, IServicioCarritoMockLocal
 {
     //-----------------------------------------------------------
@@ -112,6 +114,15 @@ public class ServicioCarritoMock implements IServicioCarritoMockRemote, IServici
     //-----------------------------------------------------------
     // Métodos
     //-----------------------------------------------------------
+    
+    /**
+     * Cuando se elimine el EJB se envico este metodo, por estar anotado
+     * como remove
+     */
+    @Remove
+    public void limpiarInformacion() {
+        this.limpiarLista();
+    }
 
     /**
      * Realiza la compra de los items que se encuentran en el carrito
@@ -150,6 +161,8 @@ public class ServicioCarritoMock implements IServicioCarritoMockRemote, IServici
             if (item.getReferencia() == mueble.getReferencia())
             {
                 item.incrementarCantidad();
+//                inventario.remove(i);
+//                inventario.add(i, item);
                 found = true;
                 break;
             }
@@ -158,8 +171,8 @@ public class ServicioCarritoMock implements IServicioCarritoMockRemote, IServici
         // Si el item no se encuentra se agrega al inventario
         if (!found)
         {
-            inventario.add(mueble);
             mueble.incrementarCantidad();
+            inventario.add(mueble);            
         }
 
         // Actualiza el inventario

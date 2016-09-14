@@ -63,12 +63,12 @@ public class LoginBeanTest
     @Test
     public void testLoginAdmin()
     {
-//        LoginBean instance = new LoginBean();
-//        instance.setUsuario("admin");
-//        instance.setContraseña("adminadmin");
-//        String expResult = "administrador";
-//        String result = instance.ingresar();
-//        assertEquals(expResult, result);
+        LoginBean instance = new LoginBean();
+        instance.setUsuario("admin");
+        instance.setContraseña("adminadmin");
+        String expResult = "administrador";
+        String result = instance.ingresar();
+        assertEquals(expResult, result);
     }
     
     //-----------------------------------------------------------
@@ -81,12 +81,12 @@ public class LoginBeanTest
     @Test
     public void testLoginClient()
     {
-//        LoginBean instance = new LoginBean();
-//        instance.setUsuario("client");
-//        instance.setContraseña("clientclient");
-//        String expResult = "cliente";
-//        String result = instance.ingresar();
-//        assertEquals(expResult, result);
+        LoginBean instance = new LoginBean();
+        instance.setUsuario("client");
+        instance.setContraseña("clientclient");
+        String expResult = "cliente";
+        String result = instance.ingresar();
+        assertEquals(expResult, result);
     }
 
 }

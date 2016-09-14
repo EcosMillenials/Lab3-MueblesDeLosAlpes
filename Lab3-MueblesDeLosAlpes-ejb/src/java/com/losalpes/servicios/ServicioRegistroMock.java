@@ -92,7 +92,7 @@ public class ServicioRegistroMock implements IServicioRegistroMockRemote, IServi
         }
         catch(OperacionInvalidaException e)
         {
-            throw new OperacionInvalidaException("Ocurrió un error al momento de eliminar");
+            throw new OperacionInvalidaException(e.getMessage());
         }
     }
 

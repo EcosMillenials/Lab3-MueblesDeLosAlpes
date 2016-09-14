@@ -13,6 +13,7 @@
 package com.losalpes.beans;
 
 import com.losalpes.entities.Mueble;
+import com.losalpes.entities.TipoMueble;
 import com.losalpes.entities.Usuario;
 import com.losalpes.servicios.IServicioCarritoMockLocal;
 import com.losalpes.servicios.IServicioCatalogoMockLocal;
@@ -23,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -33,7 +35,7 @@ import org.primefaces.event.DragDropEvent;
  * 
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class CarritoBean implements Serializable
 {
 
@@ -111,8 +113,17 @@ public class CarritoBean implements Serializable
      * @param ddEvent Evento que contiene el valor del mueble
      */
     public void agregarItemCarrito(DragDropEvent ddEvent) {
-        Mueble mueble = ((Mueble) ddEvent.getData());
-        carrito.agregarItem(mueble);
+        Mueble mueble = ((Mueble) ddEvent.getData());  
+        Mueble muebleNew = new Mueble();        
+        muebleNew.setCantidad(0);
+        muebleNew.setDescripcion(mueble.getDescripcion());
+        muebleNew.setImagen(mueble.getImagen());
+        muebleNew.setNombre(mueble.getNombre());
+        muebleNew.setPrecio(mueble.getPrecio());
+        muebleNew.setReferencia(mueble.getReferencia());
+        muebleNew.setSeleccion(mueble.isSeleccion());
+        muebleNew.setTipo(mueble.getTipo());
+        carrito.agregarItem(muebleNew);
     }
 
     /**

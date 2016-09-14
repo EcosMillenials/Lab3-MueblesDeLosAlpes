@@ -113,12 +113,14 @@ public class Usuario
      * @param contraseña Constraseña del usuario
      * @param tipo Tipo de usuario
      */
-    public Usuario(String login, String contraseña, TipoUsuario tipoUsuario)
-    {
+    public Usuario(String login, String contraseña, TipoUsuario tipoUsuario, 
+            long documento, String correo) {
         this.login = login;
         this.contraseña = contraseña;
         this.tipoUsuario = tipoUsuario;
         this.compras=new ArrayList<RegistroVenta>();
+        this.documento = documento;
+        this.correo = correo;
     }
 
     //-----------------------------------------------------------

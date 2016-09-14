@@ -102,17 +102,21 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
             usuarios = new ArrayList<Usuario>();
 
             //Agrega usuarios al sistema
-            usuarios.add(new Usuario("admin", "adminadmin", TipoUsuario.Administrador));
-            usuarios.add(new Usuario("client", "clientclient", TipoUsuario.Cliente));
+            usuarios.add(new Usuario("admin", "adminadmin", TipoUsuario.Administrador, 
+                    80221940, "leov.calderon@gmail.com"));
+            usuarios.add(new Usuario("client", "clientclient", TipoUsuario.Cliente, 
+                    10203587, "cliente@gmail.com"));
+                        
 
             registrosVentas = new ArrayList<RegistroVenta>();
             Random r = new Random();
             for (int e = 0; e < 8; e++) {
                 RegistroVenta venta = new RegistroVenta();
-                venta.setCantidad(e);
+                venta.setCantidad(e+1);
                 venta.setProducto(muebles.get(e));
                 venta.setFechaVenta(new Date(r.nextInt()));
                 venta.setCiudad("Bogotá");
+                venta.setComprador(usuarios.get(1));
                 registrosVentas.add(venta);
             }
         }
@@ -264,7 +268,7 @@ public class ServicioPersistenciaMock implements IServicioPersistenciaMockRemote
                 if (rv.getComprador().getLogin().equals(usuarioABorrar.getLogin()))
                 {
                     System.out.print("no borrado");
-                    throw new OperacionInvalidaException("El usuario ha realizado comprar y por lo tanto no puede ser eliminado del sistema.");
+                    throw new OperacionInvalidaException("El usuario ha realizado compras y por lo tanto no puede ser eliminado del sistema.");
                 }
             }
             if (usuarioABorrar != null && usuarioABorrar.getLogin() != null)

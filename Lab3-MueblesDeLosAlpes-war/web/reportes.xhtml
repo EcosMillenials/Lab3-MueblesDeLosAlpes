@@ -30,20 +30,24 @@
                 <p:panel id="basic" header="Reporte Ventas Ultimo Mes" style="margin-bottom:20px" >
 
                     <p:dataTable var="reporte" value="#{reporteBean.reporteVentas}">
-                        <p:column headerText="Fecha">
+                        <p:column filterBy="#{reporte.fechaVenta}" sortBy="#{reporte.fechaVenta}" headerText="Fecha">
                             <h:outputText value="#{reporte.fechaVenta}" />
                         </p:column>
-                        <p:column headerText="Producto">
+                        <p:column headerText="Producto" filterBy="#{reporte.producto.nombre}" sortBy="#{reporte.producto.nombre}">
                             <h:outputText value="#{reporte.producto.nombre}" />
                         </p:column>
+                        <p:column headerText="Imágen">                                
+                            <p:graphicImage id="imgTable"
+                                            url="./resources/img/pag/#{reporte.producto.imagen}_small.png"/>                                
+                        </p:column>
 
-                        <p:column headerText="Cantidad">
+                        <p:column headerText="Cantidad" filterBy="#{reporte.cantidad}" sortBy="#{reporte.cantidad}">
                             <h:outputText value="#{reporte.cantidad}" />
                         </p:column>
-                        <p:column headerText="Ciudad">
+                        <p:column headerText="Ciudad" filterBy="#{reporte.ciudad}" sortBy="#{reporte.ciudad}">
                             <h:outputText value="#{reporte.ciudad}" />
                         </p:column>
-                        
+
 
                     </p:dataTable>
 

@@ -12,13 +12,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
-import javax.ejb.Stateless;
+import javax.ejb.Stateful;
+
 
 /**
  *
  * @author l.valbuena
  */
-@Stateless
+@Stateful
 public class ServicioCatalogoMock implements IServicioCatalogoMockLocal, IServicioCatalogoMockRemote {
     
     /**
@@ -39,7 +40,12 @@ public class ServicioCatalogoMock implements IServicioCatalogoMockLocal, IServic
 
     @Override
     public void eliminarMueble(long id) {
-//        Mueble mueble = servicioPersistencia.findById(Mueble.class, id);
+        Mueble mueble = (Mueble)servicioPersistencia.findById(Mueble.class, id);
+        try {
+            servicioPersistencia.delete(mueble);
+        } catch (OperacionInvalidaException ex) {
+            Logger.getLogger(ServicioCatalogoMock.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 

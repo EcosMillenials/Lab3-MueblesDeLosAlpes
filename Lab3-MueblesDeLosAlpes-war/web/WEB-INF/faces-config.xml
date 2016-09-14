@@ -8,7 +8,7 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 
     <!-- Managed beans del sistema -->
-    <managed-bean>
+<!--    <managed-bean>
         <description>Managed bean encargado de la autenticación de los usuarios en el sistema</description>
         <managed-bean-name>loginBean</managed-bean-name>
         <managed-bean-class>com.losalpes.beans.LoginBean</managed-bean-class>
@@ -41,7 +41,7 @@
         <managed-bean-name>vendedorBean</managed-bean-name>
         <managed-bean-class>com.losalpes.beans.VendedorBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
+    </managed-bean>-->
 
     <!-- Reglas de navegación -->
     <navigation-rule>
